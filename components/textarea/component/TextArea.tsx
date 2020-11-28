@@ -9,7 +9,7 @@ export interface TextAreaProps {
   disabled?: boolean;
   placeholder?: string;
   value?: string;
-  isWarning?: false;
+  isWarning?: boolean;
   hintText?: string;
   handleChange?: Function;
   style?: React.CSSProperties;

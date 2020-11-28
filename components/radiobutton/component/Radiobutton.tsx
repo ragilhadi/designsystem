@@ -9,6 +9,7 @@ export interface RadioButtonProps {
   disabled?: boolean;
   id?: String;
   checked?: boolean;
+  skeleton?: boolean;
   handleChange?: Function;
   style?: React.CSSProperties;
 }
@@ -52,8 +53,6 @@ const Radio = styled("input")`
 `;
 
 const Circle = styled("span")`
-  position: relative;
-  z-index: 2;
   box-sizing: content-box;
   display: inline-block;
   vertical-align: middle;
@@ -82,19 +81,9 @@ const Circle = styled("span")`
   }
 `;
 
-const Shadow = styled("div")`
-  display: inline-block;
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  border: 3px solid tranparent;
-  box-sizing: content-box;
+const Shadow = styled("span")`
+  position: relative;
+  padding: 3px;
 `;
 
 const Label = styled("label")`
@@ -105,6 +94,7 @@ const Label = styled("label")`
   vertical-align: middle;
   box-sizing: border-box;
   line-height: 20px;
+  min-width: 100px;
 `;
 
 const RadioButton: React.FC<RadioButtonProps> = ({
@@ -114,6 +104,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   handleChange,
   id,
   value,
+  skeleton,
 }) => {
   return (
     <>
@@ -126,7 +117,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
           disabled={disabled}
           onChange={handleChange}
         />
-        <Label htmlFor={id}>
+        <Label htmlFor={id} className={`${skeleton ? "skeleton" : ""}`} >
           <Circle />
           {children}
         </Label>
@@ -138,6 +129,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
 RadioButton.defaultProps = {
   checked: false,
   disabled: false,
+  skeleton: false
 };
 
 export default RadioButton;

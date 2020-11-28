@@ -8,6 +8,7 @@ export interface SwitcherProps {
   disabled?: boolean;
   checked?: boolean;
   onSlide?: Function;
+  skeleton?: boolean;
   style?: React.CSSProperties;
 }
 
@@ -20,12 +21,11 @@ const Switch = styled("label")`
   border: 3px solid transparent;
   border-radius: 12px;
   transition: border 0.2s ease-in-out;
+
   &:hover {
-    if (disabled===true) {
-      border: 3px solid #f1f1f1;
+    border-color: ${(props) => props.checked ? 
+      "#e4f4ff" : "#f1f1f1"
     }
-    border: 3px solid #e4f4ff;
-    border-radius: 12px;
   }
 `;
 
@@ -71,10 +71,10 @@ const Input = styled("input")`
   }
 `;
 
-const Switcher: React.FC<SwitcherProps> = ({ checked, disabled, onSlide }) => {
+const Switcher: React.FC<SwitcherProps> = ({ checked, disabled, onSlide, skeleton }) => {
   return (
     <>
-      <Switch>
+      <Switch className={`${skeleton ? "skeleton" : ""}`}>
         <Input
           type="checkbox"
           disabled={disabled}
@@ -90,6 +90,7 @@ const Switcher: React.FC<SwitcherProps> = ({ checked, disabled, onSlide }) => {
 Switcher.defaultProps = {
   checked: false,
   disabled: false,
+  skeleton: false,
 };
 
 export default Switcher;

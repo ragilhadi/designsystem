@@ -7,7 +7,6 @@ import {
   ComponentBlock,
 } from "../_utils/storybook";
 import RadioButton from "./component/RadioButton";
-import RadioSkeleton from "./component/RadioSkeleton";
 import RadioGroup from "./component/RadioGroup";
 import { useState } from "react";
 
@@ -74,30 +73,34 @@ export const Skeleton = () => {
             value="BCC"
             checked={option == "BCC"}
             handleChange={handleRadio}
+            skeleton
           >
-            <RadioSkeleton />
+            BCC
           </RadioButton>
           <RadioButton
             id="option2"
             value="Design"
             checked={option == "Design"}
             handleChange={handleRadio}
+            skeleton
           >
-            <RadioSkeleton />
+            Design
           </RadioButton>
           <RadioButton
             value="System"
             id="option3"
             checked={option == "System"}
             handleChange={handleRadio}
+            skeleton
           >
-            <RadioSkeleton />
+            System
           </RadioButton>
         </RadioGroup>
       </Stack>
     </SystemBlock>
   );
 };
+
 
 export const Disable = () => {
   const [option, setOption] = useState("BCC");

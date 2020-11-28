@@ -7,7 +7,6 @@ import {
   ComponentBlock,
 } from "../_utils/storybook";
 import TextArea from "./component/TextArea";
-import TextAreaSkeleton from "./component/TextAreaSkeleton";
 
 export default {
   title: "Component|Text Area",
@@ -29,15 +28,6 @@ export const Default = () => {
   );
 };
 
-export const Skeleton = () => {
-  return (
-    <SystemBlock title="BCC Design System - Text Area">
-      <Stack spacing="xl">
-        <TextAreaSkeleton />
-      </Stack>
-    </SystemBlock>
-  );
-};
 
 export const HintText = () => {
   const [textArea, setTextArea] = useState("");
@@ -82,7 +72,6 @@ export const Example = () => {
     <SystemBlock title="BCC Design System - Text Area Warning Example">
       <Stack spacing="xl">
         <TextArea
-          className="skeleton"
           value={textArea}
           handleChange={handleChangeException}
           hintText="Maximal 20 Character"

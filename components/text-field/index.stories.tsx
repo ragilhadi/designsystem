@@ -7,7 +7,6 @@ import {
   ComponentBlock,
 } from "../_utils/storybook";
 import Input from "./component/Input";
-import InputSkeleton from "./component/InputSkeleton";
 import { useState } from "react";
 
 export default {
@@ -27,15 +26,6 @@ export const Default = () => {
   );
 };
 
-export const Skeleton = () => {
-  return (
-    <SystemBlock title="BCC Design System - Text Field">
-      <Stack spacing="xl">
-        <InputSkeleton />
-      </Stack>
-    </SystemBlock>
-  );
-};
 
 export const Placeholder = () => {
   const [value, setValue] = useState("");
